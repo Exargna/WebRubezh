@@ -1,0 +1,21 @@
+<!-- views/login.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Вход</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Вход</h1>
+        <form method="POST" action="/login" class="form-group">
+            <input type="email" name="email" placeholder="Email" class="form-control" required>
+            <input type="password" name="password" placeholder="Пароль" class="form-control" required>
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+        <a href="/register">Нет аккаунта? Зарегистрироваться</a>
+    </div>
+</body>
+</html>

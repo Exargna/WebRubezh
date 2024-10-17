@@ -1,0 +1,43 @@
+<!-- views/articles.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Список статей</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Список статей</h1>
+        <form method="POST" action="/articles" class="form-group">
+            <input type="text" name="title" placeholder="Заголовок" class="form-control" required>
+            <textarea name="content" placeholder="Содержимое" class="form-control" required></textarea>
+            <button type="submit" class="btn btn-primary">Создать статью</button>
+        </form>
+
+        <ul class="list-group">
+            {{#each articles}}
+            <li class="list-group-item">
+                <h5>{{this.title}}</h5>
+                <p>{{this.content}}</p>
+                <small>Автор: {{this.author}}</small>
+            </li>
+            {{/each}}
+        </ul>
+
+        <div class="pagination">
+            {{#if (gt currentPage 1)}}
+            <a href="/articles?page={{dec currentPage}}" class="btn btn-secondary">Предыдущая</a>
+            {{/if}}
+            {{#if (lt currentPage totalPages)}}
+            <a href="/articles?page={{inc currentPage}}" class="btn btn-secondary">Следующая</a>
+            {{/if}}
+        </div>
+        
+        <form method="POST" action="/logout">
+            <button type="submit" class="btn btn-danger">Выйти</button>
+        </form>
+    </div>
+</body>
+</html>
